@@ -2,6 +2,7 @@ package org.mitre.jose.jwk;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -58,7 +59,7 @@ public class KeyIdGenerator {
 	}
 
 	public static List<KeyIdGenerator> values() {
-		return List.of(DATE, TIMESTAMP, SHA256, SHA1, NONE);
+	    return Arrays.asList(DATE, TIMESTAMP, SHA256, SHA1, NONE);
 	}
 
 	public static KeyIdGenerator get(String name) {

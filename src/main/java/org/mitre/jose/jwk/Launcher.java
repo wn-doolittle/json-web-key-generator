@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.math.BigInteger;
 import java.net.URLEncoder;
@@ -373,7 +374,7 @@ public class Launcher {
 	public static Certificate selfSign(PublicKey pub, PrivateKey priv, String subjectDN, String signatureAlgorithm)
 	{
 		try {
-			X500Name dn = new X500Name("CN=" + URLEncoder.encode(subjectDN, Charset.defaultCharset()));
+			X500Name dn = new X500Name("CN=" + URLEncoder.encode(subjectDN, Charset.defaultCharset().name()));
 
 			BigInteger certSerialNumber = BigInteger.valueOf(Instant.now().toEpochMilli());
 
@@ -391,7 +392,7 @@ public class Launcher {
 
 			return new JcaX509CertificateConverter()
 				.getCertificate(certBuilder.build(contentSigner));
-		} catch (CertificateException | OperatorCreationException e) {
+		} catch (CertificateException | OperatorCreationException | UnsupportedEncodingException e) {
 			throw printUsageAndExit("Unable to create certificate: " + e.getMessage());
 		}
 	}

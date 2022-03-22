@@ -1,6 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.basepom</groupId>
+		<artifactId>basepom-minimal</artifactId>
+		<version>35</version>
+	</parent>
+
 	<groupId>org.mitre</groupId>
 	<artifactId>json-web-key-generator</artifactId>
 	<version>0.9-SNAPSHOT</version>
@@ -11,7 +17,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+		<java.version>11</java.version>
+		<basepom.check.fail-all>false</basepom.check.fail-all>
 	</properties>
 
 	<scm>
@@ -20,12 +27,6 @@
 		<url>https://github.com/mitreid-connect/json-web-key-generator.git</url>
 		<tag>HEAD</tag>
 	</scm>
-
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
 
 	<build>
 		<pluginManagement>
