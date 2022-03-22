@@ -1,3 +1,5 @@
 
 build:
   image: jdk11
+  analysis:
+    enabled: false
